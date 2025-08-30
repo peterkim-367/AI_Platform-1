@@ -117,8 +117,8 @@ console.log(response.choices[0].message.content);`;
       </div>
 
       <div className="flex h-[calc(100vh-8rem)]">
-        {/* Chat Area */}
-        <div className="flex-1 flex flex-col">
+        {/* Chat Area - 70% */}
+        <div className="flex-1 flex flex-col" style={{ width: '70%' }}>
           {/* Messages */}
           <div className="flex-1 p-6 overflow-y-auto">
             {response && (
@@ -175,7 +175,7 @@ console.log(response.choices[0].message.content);`;
           </div>
         </div>
 
-        {/* Settings Sidebar */}
+        {/* Settings Sidebar - 30% */}
         <div className="w-80 bg-white border-l border-gray-200 p-6 overflow-y-auto">
           <h3 className="text-lg font-semibold text-gray-900 mb-6">설정</h3>
 
@@ -231,13 +231,13 @@ console.log(response.choices[0].message.content);`;
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                시스템 프롬프트
+                시스템 프롬프트 (요약)
               </label>
               <textarea
                 value={systemPrompt}
                 onChange={(e) => setSystemPrompt(e.target.value)}
                 placeholder="시스템 메시지를 입력하세요..."
-                rows={3}
+                rows={2}
                 className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
               />
             </div>
@@ -281,15 +281,25 @@ console.log(response.choices[0].message.content);`;
                   className="w-full accent-blue-600" 
                 />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  안전 필터
+                </label>
+                <select className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                  <option>기본</option>
+                  <option>엄격</option>
+                  <option>관대</option>
+                </select>
+              </div>
             </div>
           )}
 
           {/* Cost/Usage Card */}
           <div className="mt-8 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-            <h4 className="text-sm font-medium text-gray-900 mb-3">비용 정보</h4>
+            <h4 className="text-sm font-medium text-gray-900 mb-3">비용/쿼터</h4>
             <div className="text-sm text-gray-600 space-y-2">
               <div className="flex justify-between">
-                <span>예상 비용:</span>
+                <span>요청 예상 비용:</span>
                 <span className="font-medium">${estimatedCost.toFixed(4)}</span>
               </div>
               <div className="flex justify-between">
@@ -317,7 +327,7 @@ console.log(response.choices[0].message.content);`;
                 onClick={exportToTypeScript}
                 className="w-full text-left px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm transition-colors"
               >
-                TypeScript로 복사
+                JavaScript로 복사
               </button>
               <button className="w-full text-left px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm transition-colors">
                 Python으로 복사

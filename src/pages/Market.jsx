@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { ShoppingBag } from 'lucide-react';
 import { FilterBar } from '../components/market/FilterBar';
 import { ModelCard } from '../components/market/ModelCard';
 import { ComparisonBar } from '../components/market/ComparisonBar';
@@ -30,6 +31,10 @@ export const Market = () => {
         return false;
       }
       if (model.pricing.type === 'paid' && model.pricing.amount > filters.priceRange[1]) {
+        return false;
+      }
+      const maxMetric = Math.max(...Object.values(model.metrics));
+      if (maxMetric < filters.minPerformance) {
         return false;
       }
       return true;
@@ -129,19 +134,14 @@ export const Market = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-3">
-                  최소 성능: {filters.minPerformance}%
+                  데이터셋 기준 성능
                 </label>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={filters.minPerformance}
-                  onChange={(e) => setFilters({
-                    ...filters,
-                    minPerformance: Number(e.target.value)
-                  })}
-                  className="w-full accent-blue-600"
-                />
+                <select className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                  <option>전체</option>
+                  <option>MMLU 기준</option>
+                  <option>HellaSwag 기준</option>
+                  <option>ARC 기준</option>
+                </select>
               </div>
             </div>
           </div>

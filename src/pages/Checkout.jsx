@@ -52,7 +52,7 @@ export const Checkout = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Order Summary */}
+        {/* Order Summary - Left */}
         <div className="lg:col-span-1">
           <div className="bg-white rounded-xl border border-gray-200 p-6 sticky top-24">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">주문 요약</h2>
@@ -110,10 +110,25 @@ export const Checkout = () => {
                 </div>
               ))}
             </div>
+
+            {/* Access Pass Preview */}
+            <div className="mt-6 pt-4 border-t border-gray-200">
+              <h4 className="text-sm font-semibold text-gray-900 mb-3">발급 예정 Access Pass</h4>
+              <div className="text-sm text-gray-600 space-y-1">
+                <div className="flex justify-between">
+                  <span>만료:</span>
+                  <span>30일</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>사용 한도:</span>
+                  <span>1M 토큰</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Payment Steps */}
+        {/* Payment Steps - Right */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             {/* Step Indicator */}

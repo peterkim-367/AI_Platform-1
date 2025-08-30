@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, ExternalLink } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const ModelCard = ({ 
@@ -26,6 +26,7 @@ export const ModelCard = ({
     }
   };
 
+  // Get top 2 metrics only
   const topMetrics = Object.entries(model.metrics).slice(0, 2);
 
   return (
@@ -56,7 +57,7 @@ export const ModelCard = ({
         </button>
       </div>
 
-      {/* Top 2 Metrics */}
+      {/* Top 2 Metrics Only */}
       <div className="grid grid-cols-2 gap-3 mb-4">
         {topMetrics.map(([metric, value]) => (
           <div key={metric} className="text-center p-3 bg-gray-50 rounded-lg">
@@ -66,8 +67,8 @@ export const ModelCard = ({
         ))}
       </div>
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-4">
+      {/* Tags - Only 2 chips for modality and license */}
+      <div className="flex space-x-2 mb-4">
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getModalityColor(model.modality)}`}>
           {model.modality}
         </span>
