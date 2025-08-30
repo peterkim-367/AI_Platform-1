@@ -11,7 +11,8 @@ import {
   Check,
   Eye,
   Shield,
-  Clock
+  Clock,
+  Bot
 } from 'lucide-react';
 
 export const ModelDetail = () => {
@@ -206,7 +207,7 @@ export const ModelDetail = () => {
               </div>
             </div>
 
-            {/* Pricing Card */}
+            {/* Pricing Card - 30% width */}
             <div className="bg-white rounded-xl border border-gray-200 p-6 h-fit shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-6">가격 플랜</h3>
               <div className="space-y-4">
@@ -225,9 +226,9 @@ export const ModelDetail = () => {
                       <div className="text-sm text-gray-600 mb-3">
                         {plan.price === 0 ? '무료' : `$${plan.price} USDC`}
                       </div>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="grid grid-cols-2 gap-1">
                         {plan.rights.map(right => (
-                          <span key={right} className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                          <span key={right} className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium text-center">
                             {right}
                           </span>
                         ))}

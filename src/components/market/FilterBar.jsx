@@ -97,6 +97,25 @@ export const FilterBar = ({
           </div>
         </div>
 
+        {/* Minimum Performance */}
+        <div className="flex items-center space-x-3">
+          <span className="text-sm font-medium text-gray-700">최소 성능:</span>
+          <div className="flex items-center space-x-3">
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={filters.minPerformance}
+              onChange={(e) => onFiltersChange({
+                ...filters,
+                minPerformance: Number(e.target.value)
+              })}
+              className="w-24 accent-blue-600"
+            />
+            <span className="text-xs text-gray-600 min-w-[40px]">{filters.minPerformance}%</span>
+          </div>
+        </div>
+
         {/* Clear Filters */}
         {hasActiveFilters && (
           <button

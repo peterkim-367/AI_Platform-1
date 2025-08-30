@@ -7,15 +7,13 @@ import {
   Settings2, 
   BarChart3, 
   Users, 
-  Shield,
-  Upload
+  Shield 
 } from 'lucide-react';
 
 const navigation = [
   { name: '마켓', href: '/', icon: ShoppingBag },
   { name: '모델', href: '/models', icon: Bot },
   { name: '플레이그라운드', href: '/playground', icon: PlayCircle },
-  { name: '제작자 콘솔', href: '/creator', icon: Upload },
   { name: '파인튜닝', href: '/finetune', icon: Settings2 },
   { name: '사용량/청구', href: '/billing', icon: BarChart3 },
   { name: '조직', href: '/organization', icon: Users },
